@@ -1,13 +1,17 @@
 {
-  "extends": "../tsconfig.json",
   "compilerOptions": {
-    /* Modules */
-    "rootDir": "src" /* Specify the root folder within your source files. */,
-
-    /* Emit */
-    "outDir": "dist" /* Specify an output folder for all emitted files. */
-    // "noEmitOnError": true /* Disable emitting files if any type checking errors are reported. */
+    "module": "nodenext",  // Use 'nodenext' for module resolution
+    "moduleResolution": "nodenext",  // Ensure correct resolution of ES module imports
+    "target": "ESNext",  // Allow modern JS features
+    "rootDir": "src",  // Set the root directory for TypeScript files
+    "outDir": "dist",  // Output compiled files into the dist folder
+    "esModuleInterop": true,  // Ensure compatibility with ES modules
+    "skipLibCheck": true,  // Skip checking type declarations in libraries
+    "strict": true,  // Enable all strict type-checking options
+    "allowJs": true,  // Allow JavaScript files in the project
+    "checkJs": false,  // Skip type-checking for JavaScript files
+    "forceConsistentCasingInFileNames": true  // Enforce consistent casing for file names
   },
-  "include": ["src"],
-  "typeRoots": ["./node_modules/@types", "./src/types"]
+  "include": ["src"],  // Include all files in the 'src' folder
+  "exclude": ["node_modules", "dist"]  // Exclude the node_modules and dist folders
 }
