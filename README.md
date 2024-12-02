@@ -65,8 +65,8 @@ npm run dev
 #### Deployment
 The app is deployed using Render.
 
-- Frontend: Live Site
-- Backend: GraphQL Endpoint
+- Frontend: [Live Site](https://graphql-book-search-gg90.onrender.com/)
+- Backend: [GraphQL Endpoint](https://graphql-book-search-backend.onrender.com)
 
 #### License
 This project is licensed under the MIT License.
