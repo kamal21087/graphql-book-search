@@ -1,10 +1,10 @@
-import jwt from 'jsonwebtoken';
+import jwt, { JwtPayload as BaseJwtPayload } from 'jsonwebtoken';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-interface JwtPayload {
-  _id: unknown;
+interface JwtPayload extends BaseJwtPayload {
+  _id: string;
   username: string;
   email: string;
 }
@@ -12,11 +12,17 @@ interface JwtPayload {
 // Function to extract user from token
 export const authenticateToken = (authHeader?: string) => {
   if (!authHeader) {
+    console.error('No authorization header provided.');
     return null;
   }
 
   const token = authHeader.split(' ')[1];
-  const secretKey = process.env.JWT_SECRET_KEY || '';
+  const secretKey = process.env.JWT_SECRET || '';
+
+  if (!secretKey) {
+    console.error('Error: JWT secret key is not set in environment variables.');
+    return null;
+  }
 
   try {
     const user = jwt.verify(token, secretKey) as JwtPayload;
@@ -28,9 +34,13 @@ export const authenticateToken = (authHeader?: string) => {
 };
 
 // Function to sign JWT token
-export const signToken = (username: string, email: string, _id: unknown) => {
+export const signToken = (username: string, email: string, _id: string) => {
   const payload = { username, email, _id };
-  const secretKey = process.env.JWT_SECRET_KEY || '';
+  const secretKey = process.env.JWT_SECRET || '';
+
+  if (!secretKey) {
+    throw new Error('Error: JWT secret key is not set in environment variables.');
+  }
 
   return jwt.sign(payload, secretKey, { expiresIn: '1h' });
 };
