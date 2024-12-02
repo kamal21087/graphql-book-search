@@ -1,17 +1,18 @@
 {
   "compilerOptions": {
-    "module": "nodenext",  // Use 'nodenext' for module resolution
-    "moduleResolution": "nodenext",  // Ensure correct resolution of ES module imports
-    "target": "ESNext",  // Allow modern JS features
-    "rootDir": "src",  // Set the root directory for TypeScript files
-    "outDir": "dist",  // Output compiled files into the dist folder
-    "esModuleInterop": true,  // Ensure compatibility with ES modules
-    "skipLibCheck": true,  // Skip checking type declarations in libraries
-    "strict": true,  // Enable all strict type-checking options
-    "allowJs": true,  // Allow JavaScript files in the project
-    "checkJs": false,  // Skip type-checking for JavaScript files
-    "forceConsistentCasingInFileNames": true  // Enforce consistent casing for file names
+    "module": "ESNext",                  // Use ES Modules for Node.js compatibility
+    "moduleResolution": "Node",         // Resolve modules in Node.js style
+    "target": "ES2020",                 // Allow modern JavaScript features
+    "rootDir": "src",                   // Root directory for source files
+    "outDir": "dist",                   // Directory for compiled files
+    "allowJs": true,                    // Allow JavaScript files in the project
+    "esModuleInterop": true,            // Enable compatibility between CommonJS and ES Modules
+    "forceConsistentCasingInFileNames": true, // Enforce consistent import casing
+    "strict": true,                     // Enable all strict type-checking options
+    "skipLibCheck": true,               // Skip type checking for libraries
+    "resolveJsonModule": true,          // Allow importing JSON files
+    "incremental": true                 // Enable incremental builds
   },
-  "include": ["src"],  // Include all files in the 'src' folder
-  "exclude": ["node_modules", "dist"]  // Exclude the node_modules and dist folders
+  "include": ["src"],                   // Include all files in the src folder
+  "exclude": ["node_modules", "dist"]  // Exclude these folders from compilation
 }
