@@ -67,6 +67,8 @@ The app is deployed using Render.
 
 - Frontend: [Live Site](https://graphql-book-search-gg90.onrender.com/)
 - Backend: [GraphQL Endpoint](https://graphql-book-search-backend.onrender.com)
+- Screenshot: ![Screenshot 2024-12-02 at 1 21 25 PM](https://github.com/user-attachments/assets/2fdcbfc3-18b8-4e8a-bebb-5fe2cb60cb90)
+
 
 #### License
 This project is licensed under the MIT License.
