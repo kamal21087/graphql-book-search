@@ -1,10 +1,15 @@
 import express, { Application } from 'express';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import { ApolloServer } from 'apollo-server-express';
 import db from './config/connection.js';
 import typeDefs from './schemas/typeDefs.js';
 import resolvers from './schemas/resolvers.js';
 import { authenticateToken } from './services/auth.js';
+
+// Define __dirname for ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express() as Application;
 const PORT = process.env.PORT || 3001;
